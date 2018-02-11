@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jeff's cozy home</title>
+    <description>Hi, I am Zheng(Jeff) Xu. A programmer focusing on embedded system, c++(Qt), epub, font, web browser. Android and iOS are my hobby.
+</description>
+    <link>http://www.jeffxu.net/</link>
+    <atom:link href="http://www.jeffxu.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 11 Feb 2018 16:27:39 -0500</pubDate>
+    <lastBuildDate>Sun, 11 Feb 2018 16:27:39 -0500</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Reading &quot;Web App Manifest&quot;</title>
+        <description>&lt;p&gt;Last time update: 2018-02-10&lt;/p&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;This is my memo of reading w3c spec “&lt;a href=&quot;https://w3c.github.io/manifest/&quot;&gt;Web App Manifest&lt;/a&gt;”. At first, at the time I am writing this, status of the spec is still Working Draft which means it could be changed later on. In case you want to get more involved to see what is going on about the specification in real time here is the “&lt;a href=&quot;https://github.com/w3c/manifest&quot;&gt;github&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-web-app-manifest&quot;&gt;What is Web App Manifest&lt;/h3&gt;
+
+&lt;p&gt;It provides a standard of metadata for web application so that UA (web browser mostly) could handle those meta information properly. This might sounds too abstract to understand. &lt;a href=&quot;/examples/web-app/manifest-sample1&quot;&gt;Here&lt;/a&gt; is a very simple web app using manifest. For this tiny example we only need index.html, manifest.json and an icon file.&lt;/p&gt;
+
+&lt;div class=&quot;github-sample-reference&quot;&gt;
+  &lt;div class=&quot;author-info&quot;&gt;
+    &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/index.html&quot;&gt;This Github Sample&lt;/a&gt; is by &lt;a href=&quot;https://github.com/Jeffxz&quot;&gt;Jeffxz&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;meta-info&quot;&gt;
+    examples/web-app/manifest-sample1/index.html &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/index.html&quot;&gt;view&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample1/index.html&quot;&gt;raw&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;5&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;6&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;7&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;8&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;	&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;	&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;This is a very simple example for web app manifest&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;manifest&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;manifest.json&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;github-sample-reference&quot;&gt;
+  &lt;div class=&quot;author-info&quot;&gt;
+    &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/manifest.json&quot;&gt;This Github Sample&lt;/a&gt; is by &lt;a href=&quot;https://github.com/Jeffxz&quot;&gt;Jeffxz&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;meta-info&quot;&gt;
+    examples/web-app/manifest-sample1/manifest.json &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/manifest.json&quot;&gt;view&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample1/manifest.json&quot;&gt;raw&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;5&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;6&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;7&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;8&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sample App - Very simple web app manifest&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This app helps you understanding web app manifest.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;image/free_icon.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sizes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;192x192&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here is some explain about this simple app. &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; is still entry of the web app, just like other normal web site. There is a link element pointing to &lt;code class=&quot;highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;ref=&quot;manifest&quot;&lt;/code&gt; to let UA know there is a manifest file corresponding with this web app.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately (maybe not) UA’s behavior of treating manifest is different from each other so I used latest chrome (v63.0.3239.132) on windows 10 to show how this works. Following is the setting menu in chrome to add this web app to desktop.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180210/add_to_desktop.png&quot; alt=&quot;add to desktop&quot; title=&quot;Add to Desktop 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then you will see a popup window as following which used the icons and name field from your manifest.json file.
+&lt;img src=&quot;/assets/images/20180210/add_to_desktop_take2.png&quot; alt=&quot;add_to_desktop 2&quot; title=&quot;Add to Desktop 2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After this you will find there is an icon on your windows desktop for this tiny web app.
+&lt;img src=&quot;/assets/images/20180210/desktop_icon.png&quot; alt=&quot;desktop icon&quot; title=&quot;Desltop Icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click it you will see the web app started just like other windows applications.
+&lt;img src=&quot;/assets/images/20180210/app_start.png&quot; alt=&quot;app start&quot; title=&quot;App Start&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tada!!! Here is your very first tiny web app launched.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 10 Feb 2018 12:08:53 -0500</pubDate>
+        <link>http://www.jeffxu.net/w3c/2018/02/10/web-app-manifest.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/w3c/2018/02/10/web-app-manifest.html</guid>
+        
+        
+        <category>w3c</category>
+        
+      </item>
+    
+      <item>
+        <title>How to use git as a contributer</title>
+        <description>&lt;h2 id=&quot;basic&quot;&gt;Basic&lt;/h2&gt;
+&lt;p&gt;This discribe how we work with git as a contributer.
+   Which means, we folk some (original) repository on github(for example) to our own remote repository, then we modify and push to our own remote repository, then send pull request from our own remote repository to merge to original repository.
+   I assume user already know basic about git such as three state (modified, staged, committed)&lt;/p&gt;
+
+&lt;h2 id=&quot;often-command-used-by-contributer-not-commitor&quot;&gt;Often command used by contributer (not commitor)&lt;/h2&gt;
+
+&lt;h3 id=&quot;command-i-recommend-to-use&quot;&gt;Command I recommend to use&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git remote add&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git fetch&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git rebase&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git add&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git commit&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git reset&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;maybe include &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;commands-i-do-not-recommend-to-use-until-you-know-exactly-what-you-are-doing&quot;&gt;Commands I do not recommend to use (until you know exactly what you are doing)&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git merge&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git pull&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;progress-howwhen-to-use-above-commands&quot;&gt;progress (How/When to use above commands)&lt;/h2&gt;
+
+&lt;h3 id=&quot;first-time&quot;&gt;First time&lt;/h3&gt;
+
+&lt;p&gt;Assume we are just started to work on some Open Source project (on Github?)
+Assume we already forked some project to our own remote repository (see &lt;a href=&quot;https://help.github.com/articles/fork-a-repo/&quot;&gt;here&lt;/a&gt;)
+So, next we need to clone source code from remote repository to local.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone &amp;lt;some repository&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note: Generally this clone your own remote repository (from Github or somewhere else)&lt;/p&gt;
+
+&lt;h3 id=&quot;but-we-also-need-to-sync-new-commit-from-original-project&quot;&gt;But we also need to sync new commit from original project&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add &amp;lt;the original remote repository&amp;gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git remote &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;to show about remote respository we are using&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;then-make-some-change-and-commit-in-the-case-everything-goes-very-very-well-and-smoothly-but-generally-not-gonna-happen&quot;&gt;Then, make some change and commit (in the case everything goes very very well and smoothly, but generally not gonna happen)&lt;/h3&gt;
+
+&lt;p&gt;If everything goes well, we need to make some change and&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;some message&quot;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push &amp;lt;your own repository&amp;gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;NOTE: not the original repository you need to send Pull Request&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;then send PR (Pull Request) on Github and waiting for merge.&lt;/p&gt;
+
+&lt;h3 id=&quot;after-a-couple-of-hours-and-get-review-feedback-that-i-need-some-fix-and-send-pr-again-ok-this-is-more-close-to-reality-more-practical&quot;&gt;After a couple of hours, and get review feedback that I need some fix and send PR again (Ok, this is more close to reality, more practical).&lt;/h3&gt;
+&lt;p&gt;First of course, we make some change locally, and after “git add”, generally we need to&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git log &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;I prefer check branch name and log to confirm we are working on correct branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;this merge new fix to previous commit we already made&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push &amp;lt;repository name&amp;gt; &amp;lt;branch name&amp;gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, this would overwrite old change on github (This is depends on project, if the project you are working on require to create new commit for each fix, you need to do from “git add” to “git push” in &lt;a href=&quot;#then-make-some-change-and-commit-in-the-case-everything-goes-very-very-well-and-smoothly-but-generally-not-gonna-happen&quot;&gt;previous step&lt;/a&gt; instead of this step).&lt;/p&gt;
+
+&lt;h3 id=&quot;more-close-to-real-life-to-work-with-git&quot;&gt;More close to real life to work with git&lt;/h3&gt;
+
+&lt;p&gt;We need to run git fetch before send PR. Why? Since the original remote repository might be changed between we made some change on our own remote repository.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git fetch &amp;lt;repository&amp;gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git stash &amp;lt;somewhere&amp;gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;this &lt;span class=&quot;nb&quot;&gt;let &lt;/span&gt;git rebase  will never be failed&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git rebase &amp;lt;branch&amp;gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git stash pop&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;oops-got-conflict-when-running-git-stash-pop&quot;&gt;Oops, got conflict when running “git stash pop”&lt;/h3&gt;
+
+&lt;p&gt;like this&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;sb&quot;&gt;```&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;++&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt;&amp;lt; Updated upstream&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;// Current commit&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;++&lt;span class=&quot;o&quot;&gt;=======&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;// Conflict &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;code&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;++&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Stashed changes&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;sb&quot;&gt;```&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, we need to modify conflict source code and then&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;resolve conflict manually by modifying conflicted file&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;commit message&quot;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, send PR from your own remote respository&lt;/p&gt;
+
+&lt;h2 id=&quot;hmm-got-conflict-when-running-git-rebase&quot;&gt;hmm, got conflict when running “git rebase”&lt;/h2&gt;
+&lt;p&gt;Now, assuming we already committed local modification and wanna rebase before push&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;resolve conflict manually by modifying conflicted file&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git rebase &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, send PR from your own remote respository&lt;/p&gt;
+
+&lt;h3 id=&quot;other-trouble-shooting&quot;&gt;Other trouble shooting&lt;/h3&gt;
+
+&lt;h4 id=&quot;how-can-i-squash-two-or-more-current-commit-locally-or-on-my-own-remote-repository&quot;&gt;How can I squash two or more current commit locally (or on my own remote repository)&lt;/h4&gt;
+
+&lt;p&gt;There are at least two ways to do it. I recommend “reset and push”
+Assume we have two commits (commit 1 and commit 2) as following and wanna merge commit 1 and commit 2 together to send pull request&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&amp;lt;old commit 0 remote&amp;gt; ++++++++++++ commit 1 +++++ commit 2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git reset &lt;span class=&quot;nt&quot;&gt;--soft&lt;/span&gt; HEAD^ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;this roll back commit 2 and remain modification at &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;     commit 0 ++++++++++++++++++++ commit 1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;by this &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;, we merged commit 2 to commit 1 and created a new commit 3 which has same commit log as commit 1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;     commit 0 ++++++++++++++++++++ commit 3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git push origin dev &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;here we discarded commit 1 and commit 2 from our own remote repository and use commit 3 instead of them&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;     commit 0 ++++++++++++++++++++ commit 3 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;commit log is same as commit 1&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The other way is git rebase&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; HEAD~~&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/book/en/v2/Getting-Started-Git-Basics&quot;&gt;Git-Basics&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 11 Jan 2016 12:08:53 -0500</pubDate>
+        <link>http://www.jeffxu.net/git/2016/01/11/use-git.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/git/2016/01/11/use-git.html</guid>
+        
+        
+        <category>git</category>
+        
+      </item>
+    
+      <item>
+        <title>JP Digital Publishing Industry need more implementors</title>
+        <description>&lt;p&gt;Just attended JP Industry meetup (http://csslab.bpsinc.jp/wiki/index.php?JPIndustryMeetup)&lt;/p&gt;
+
+&lt;p&gt;In this meetup Fantasai (who is known as Elika as editor of http://www.w3.org/TR/css3-text/, http://www.w3.org/TR/css-text-decor-3/ and some other css specs) intduced about W3C progress based on http://fantasai.inkedblade.net/weblog/2011/inside-csswg/ and a little bit about CSS relates to http://fantasai.inkedblade.net/weblog/2012/css-layout-evolution/ to JP digital publishing related members. Also we had some discussions about what is most important in jlreq (http://www.w3.org/TR/jlreq/).&lt;/p&gt;
+
+&lt;p&gt;First about spec process, in CSSWG basically there are three phases: Working Draft (WD), Candidate Recommendation (CR) and Recommendation (REC). Also added Last Call (LC) and Proposed Recommendation (PR). In all of the phases, PR and REC actually have not any technically difference. They are just different in process steps such as approval. If want to escape from CR to REC, we need two correct, independent implementations of each feature.&lt;/p&gt;
+
+&lt;p&gt;We also heard about Snapshot for CSS spec (like this one: http://www.w3.org/TR/CSS/). The goal of this status is: Specification is demonstrated to be stable via implementation and testing experience. It might be 100% not yet completed, but not further changes expected, just like REC.&lt;/p&gt;
+
+&lt;p&gt;So, we can compare Specs vs. Software as following:
+Expolring&lt;/p&gt;
+
+&lt;p&gt;Software: Whiteboard drawings and discussions&lt;/p&gt;
+
+&lt;p&gt;Specs: pre-FPWD,  early WD
+Revising&lt;/p&gt;
+
+&lt;p&gt;Software: Pre-alpha(prototyping)&lt;/p&gt;
+
+&lt;p&gt;Specs: mid-stage WD
+Stabilizing&lt;/p&gt;
+
+&lt;p&gt;Software: Alpha(bleeding edge)&lt;/p&gt;
+
+&lt;p&gt;Specs: late-stage WD
+Call for implementations&lt;/p&gt;
+
+&lt;p&gt;Software: Beta (read for early adoption)&lt;/p&gt;
+
+&lt;p&gt;Specs: early CR
+Recommended&lt;/p&gt;
+
+&lt;p&gt;Software: x.0 Release(ready for everyone)&lt;/p&gt;
+
+&lt;p&gt;Specs: Snapshot CR
+Finished&lt;/p&gt;
+
+&lt;p&gt;Software: x.1 Release(last bugs fixed)&lt;/p&gt;
+
+&lt;p&gt;Specs: PR, REC&lt;/p&gt;
+
+&lt;p&gt;In the second part of this meetup, which is a discussion session, it is started from question about “What part is most important for jlreq”.  That is a very good question since jlreq is a “large” and detailed requirement comes from paper publisher standard (JIS x 4051). When we have requirements and get agreement “ok, let’s do it”, well, next step is what we should or can start from. For example page rhythm has very high priority. Okay, we are gonna have CSS line-grid (https://drafts.csswg.org/css-line-grid/). Looks like everything can be resolved. But wait, take a look at line-grid, is it for Latin which is horizontal writing-mode? Yes, this is a start of discussion. How could vertical writing world contribute to it. The basic idea here is communicate more often, CSSWG is open for proposal. Well, how to do it for non-English world? How to make the proposals more make sense? For language, simple, learn it and use it. Many CSSWG members also come from non-English world, just not be afraid to speak wrong way (actually this motivated me pretty much, if you read this article, you can definitely know I am also not a native English user). For the second question, need propose (communicate) more frequently. Don’t need to wait for a complete finished draft to propose. Can just talk with CSSWG member and get advice from CSS perspective.&lt;/p&gt;
+
+&lt;p&gt;Okay, report of meetup is finished at here. Here are my questions. Who could do the task about gather priority for jlreq and make the proposal to CSSWG? And the second question is CSS (both spec or implementer) are basically for web site which is a scroll world. So, who and how to make the pagination world interested by them. Actually this is not only a problem for vertical writing mode. Even though for horizontal world, we also have same issues which DPUB-IG is related. Don’t forget, if want to escape from CR to next step, we need two correct, independent implementations. My thinking is these part should be handled by Reading System (RS) vendors with publisher tech guys. RS vendors (also include some community) should talk with publisher to make the proposal since their business depends on it while publishers already have physical paper market and digital publishing is only an option for them. Also, RS vendors can decide which rendering engine (Gecko? Webkit? Blink?) they can provide to publisher and user. So, they actually can connect to web browser vendor more closer to make it (two independent implementations) happen.&lt;/p&gt;
+
+&lt;p&gt;This meetup is a very good chance that digital publisher related member in Japan can talk with CSSWG directly and they can understand what is the issue block the way. From now, how to make this communication more frequently, who is gonna taking the responsibility to make things happen would be important.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 26 Oct 2015 14:22:53 -0400</pubDate>
+        <link>http://www.jeffxu.net/epub/2015/10/26/JP-digital-publishing-need-implementors.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/epub/2015/10/26/JP-digital-publishing-need-implementors.html</guid>
+        
+        
+        <category>epub</category>
+        
+      </item>
+    
+      <item>
+        <title>Play with FreeType, HarfBuzz and OpenType Font</title>
+        <description>&lt;p&gt;Here is some memo about basic of OpenType Font, FreeType and HarfBuzz&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-opentype-font&quot;&gt;What is OpenType Font&lt;/h2&gt;
+
+&lt;p&gt;OpenType font is an extention of TrueType font developped by Microsoft and Adobe
+You can find spec &lt;a href=&quot;https://www.microsoft.com/en-us/Typography/SpecificationsOverview.aspx&quot;&gt;here&lt;/a&gt;
+also from &lt;a href=&quot;http://www.adobe.com/devnet/opentype.html&quot;&gt;adobe website&lt;/a&gt;
+Here I am gonna use a open source OpenType &lt;a href=&quot;https://www.google.com/get/noto/&quot;&gt;Google Noto Fonts&lt;/a&gt; with source code opened &lt;a href=&quot;https://github.com/google/roboto&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-freetype&quot;&gt;What is FreeType?&lt;/h2&gt;
+&lt;p&gt;A very popullar open source font rendering engine(library) used by Webkit, Qt… &lt;a href=&quot;http://www.freetype.org/&quot;&gt;Here&lt;/a&gt; is the official website.
+You can find the source code loading open type font file in following &lt;a href=&quot;https://github.com/qtproject/qtbase&quot;&gt;qtbase source code&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;QStringList QBasicFontDatabase::addTTFile&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;build-freetype&quot;&gt;build FreeType&lt;/h3&gt;
+
+&lt;p&gt;get source code and demo code&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git://git.sv.nongnu.org/freetype/freetype2.git&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;git clone git://git.sv.nongnu.org/freetype/freetype2-demos.git&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then build (I am using Ubuntu 14 64)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./autogen.sh&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./configure &lt;span class=&quot;nt&quot;&gt;--with-harfbuzz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;not use harfbuzz this &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;...&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Library configuration:&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  external zlib: yes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pkg-config&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  bzip2:         yes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;autoconf &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  libpng:        yes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pkg-config&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  harfbuzz:      no&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now we just built objs/.libs/libfreetype.so* we are gonna use later.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-freetype&quot;&gt;use FreeType&lt;/h3&gt;
+
+&lt;p&gt;we get font file from &lt;a href=&quot;https://www.google.com/get/noto/&quot;&gt;here&lt;/a&gt;
+https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-unhinted.zip&lt;/p&gt;
+
+&lt;h4 id=&quot;initialize-freetype&quot;&gt;initialize FreeType&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;#include &amp;lt;ft2build.h&amp;gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;#include FT_FREETYPE_H&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;n&quot;&gt;FT_Library&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_Init_FreeType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;        &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;error when initialize library&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;        &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oh yeah! initialized freetype!&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here is source code on &lt;a href=&quot;https://github.com/jeffxu-readon/learn-freetype/commit/be7054eadc880e09b05c9fd19d0e84a466ad0de5&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;load-google-noto-sansserif-font&quot;&gt;load google Noto SansSerif font&lt;/h3&gt;
+
+&lt;p&gt;Now we can add following line to load font face and get basic font information&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_New_Face&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;face&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;error when loading font file&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You also can view source code on &lt;a href=&quot;https://github.com/jeffxu-readon/learn-freetype/commit/c066c9aa2328f4b6793e32dfda27da5c68d71e69&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;render-some-character&quot;&gt;render some character&lt;/h3&gt;
+
+&lt;p&gt;First need to set up char size, then get glyph index from input character (use default unicode charmap here).&lt;/p&gt;
+
+&lt;p&gt;Once we have glyph index, we can call FT_Load_Glyph to load glyph image to slot. Note: the glypy image may not be a bitmap. It can be loaded as a bitmap using FT_LOAD_RENDER with FT_Load_Glyph).&lt;/p&gt;
+
+&lt;p&gt;At last, we need to call FT_Render_Glyph to render glyph.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_Set_Char_Size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;face&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;n&quot;&gt;FT_UInt&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;glyph_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;n&quot;&gt;glyph_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_Get_Char_Index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;face&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_Load_Glyph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;face&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;glyph_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FT_LOAD_RENDER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;cm&quot;&gt;/* error = FT_Render_Glyph(face-&amp;gt;glyph, FT_RENDER_MODE_NORMAL);  we do not need to call FT_Render_Glyph now because FT_Load_Glyph with FT_LOAD_RENDER already did it */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You also can view source code on &lt;a href=&quot;https://github.com/jeffxu-readon/learn-freetype/commit/56c0f15295d5082dd86846d5f7b9001f979bb4c6&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;kerning&quot;&gt;Kerning&lt;/h3&gt;
+
+&lt;p&gt;OpenType kerning via the “GPOS” table is not supported. we need to use HarfBuzz (Hey, here is HarfBuzz) or some other library.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-harfbuzz&quot;&gt;What is HarfBuzz&lt;/h2&gt;
+
+&lt;p&gt;It’s an OpenType text shape engine from &lt;a href=&quot;http://www.freedesktop.org/wiki/Software/HarfBuzz/&quot;&gt;website&lt;/a&gt;. Well, it’s too simple. What’s it?&lt;/p&gt;
+
+&lt;p&gt;Here just briefly memo about relationship between FreeType and HarfBuzz.&lt;/p&gt;
+
+&lt;p&gt;Interface between FreeType to HarfBuzz see src/autofit/afshaper.c in auto-hinting module(autofit).&lt;/p&gt;
+
+&lt;p&gt;FreeTyep use HarfBuzz to handle GSUB (&lt;a href=&quot;http://partners.adobe.com/public/developer/opentype/index_table_formats1.html&quot;&gt;The Glyph Substitution Table&lt;/a&gt;) and GPOS (&lt;a href=&quot;http://partners.adobe.com/public/developer/opentype/index_table_formats2.html&quot;&gt;The Glyph Positioning Table&lt;/a&gt;) tables in opentype&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 02 Jul 2015 16:36:48 -0400</pubDate>
+        <link>http://www.jeffxu.net/font/freetype/2015/07/02/play-with-freetype-harfbuzz-font.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/font/freetype/2015/07/02/play-with-freetype-harfbuzz-font.html</guid>
+        
+        
+        <category>font</category>
+        
+        <category>freetype</category>
+        
+      </item>
+    
+      <item>
+        <title>Memo about some tools!</title>
+        <description>&lt;h3 id=&quot;free-source-code-check-tools&quot;&gt;Free Source Code Check Tools&lt;/h3&gt;
+
+&lt;h4 id=&quot;ratsccperlphppython&quot;&gt;RATS(C,C++,Perl,PHP,Python)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.fortify.com/security-resources/rats.jsp&quot;&gt;http://www.fortify.com/security-resources/rats.jsp&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;its4cc&quot;&gt;ITS4(C,C++)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cigital.com/its4/&quot;&gt;http://www.cigital.com/its4/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;splintc&quot;&gt;Splint(C)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://lclint.cs.virginia.edu/&quot;&gt;http://lclint.cs.virginia.edu/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;flawfindercc&quot;&gt;Flawfinder(C,C++)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.dwheeler.com/flawfinder/&quot;&gt;http://www.dwheeler.com/flawfinder/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dbi-dynamic-binary-instrumentationtranslation&quot;&gt;DBI (Dynamic Binary Instrumentation/translation)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Binary_translation&quot;&gt;http://en.wikipedia.org/wiki/Binary_translation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;valgrind-can-automatically-detect-many-memory-management-and-threading-bugs&quot;&gt;Valgrind (can automatically detect many memory management and threading bugs)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://valgrind.org/&quot;&gt;http://valgrind.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;the-dynamorio-dynamic-code-modification-system&quot;&gt;The DynamoRIO dynamic code modification system&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cag.lcs.mit.edu/dynamorio/&quot;&gt;http://www.cag.lcs.mit.edu/dynamorio/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;cssdie&quot;&gt;CSSDIE&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://metasploit.com/users/hdm/tools/see-ess-ess-die/cssdie.html&quot;&gt;http://metasploit.com/users/hdm/tools/see-ess-ess-die/cssdie.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;mangleme&quot;&gt;mangleme&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://freshmeat.net/projects/mangleme/&quot;&gt;http://freshmeat.net/projects/mangleme/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dom-hanoi&quot;&gt;DOM-Hanoi&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://metasploit.com/users/hdm/tools/domhanoi/domhanoi.html&quot;&gt;http://metasploit.com/users/hdm/tools/domhanoi/domhanoi.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;hamachi&quot;&gt;Hamachi&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://metasploit.com/users/hdm/tools/hamachi/hamachi.html&quot;&gt;http://metasploit.com/users/hdm/tools/hamachi/hamachi.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;webfuzzing&quot;&gt;WebFuzzing&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.fuzzing.org/fuzzing-software&quot;&gt;http://www.fuzzing.org/fuzzing-software&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 25 Mar 2014 20:07:22 -0400</pubDate>
+        <link>http://www.jeffxu.net/tools/2014/03/25/memo-about-tools.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/tools/2014/03/25/memo-about-tools.html</guid>
+        
+        
+        <category>Tools</category>
+        
+      </item>
+    
+      <item>
+        <title>Cross-compile cairo on Armadillo-9</title>
+        <description>&lt;h2 id=&quot;memo-about-how-to-cross-compile-cairo-on-armadillo-9-arm-and-run-rendering-test&quot;&gt;Memo about how to cross-compile Cairo on Armadillo-9 (ARM) and run rendering test&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;get binutils-2.18.tar.bz2 from following URL&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$tar&lt;/span&gt; jxvf binutils-2.18.tar.bz2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$cd&lt;/span&gt; binutils-2.18/&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$.&lt;/span&gt;/configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/xtool-arm-elf &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-elf&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; all&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;add-path-for-binutils&quot;&gt;add path for binutils&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/xtool-arm-elf/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or add above to file .bashrc&lt;/p&gt;
+
+&lt;h3 id=&quot;confirm-installed-binutils&quot;&gt;confirm installed binutils&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;arm-elf-as &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;then-information-will-be-displayed-as-following&quot;&gt;then information will be displayed as following&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$arm&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-elf-as&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;GNU assembler 2.17.0&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Copyright 2005 Free Software Foundation, Inc.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;This program is free software&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; you may redistribute it under the terms of&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;the GNU General Public License. This program has absolutely no warranty.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;This assembler was configured &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a target of &lt;span class=&quot;s1&quot;&gt;'arm-elf'&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;get gcc(gcc-4.2.3.tar.bz2)
+get newlib(newlib-1.16.0)&lt;/p&gt;
+
+&lt;h3 id=&quot;prepare-for-build&quot;&gt;prepare for build&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$tar&lt;/span&gt; jxvf gcc-4.2.3.tar.bz2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$tar&lt;/span&gt; zxvf newlib-1.16.0.tar.gz&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$cd&lt;/span&gt; gcc-4.2.3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; ../newlib-1.16.0/newlib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; ../newlib-1.16.0/libgloss&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$.&lt;/span&gt;/configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/xtool-arm-elf &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-elf &lt;span class=&quot;nt&quot;&gt;--enable-languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    with-gnu-as &lt;span class=&quot;nt&quot;&gt;--with-gnu-ld&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-newlib&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; all&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;confirm-installed-gcc-with-newlib&quot;&gt;confirm installed gcc with newlib&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$arm&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-elf-gcc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;arm-elf-gcc &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;GCC&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 4.1.0&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;C&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 2006 Free Software Foundation, Inc.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;This is free software&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; see the &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;copying conditions. There is NO&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;warranty&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; not even &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;get gdb(gdb-6.8.tar.bz2)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$tar&lt;/span&gt; jxvf gdb-6.8.tar.bz2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$cd&lt;/span&gt; gdb-6.8&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$.&lt;/span&gt;/configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/xtool-arm-elf &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-elf&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; all&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$make&lt;/span&gt; install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;confirm-installed-gdb&quot;&gt;confirm installed gdb&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$/&lt;/span&gt;opt/xtool-arm-elf/bin/arm-elf-gdb&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;GNU gdb 6.6&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Copyright 2005 Free Software Foundation, Inc.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;GDB is free software, covered by the GNU General Public License, and you are&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;welcome to change it and/or distribute copies of it under certain conditions.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Type &lt;span class=&quot;s2&quot;&gt;&quot;show copying&quot;&lt;/span&gt; to see the conditions.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;There is absolutely no warranty &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;GDB. Type &lt;span class=&quot;s2&quot;&gt;&quot;show warranty&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;details.&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;This GDB was configured as &lt;span class=&quot;s2&quot;&gt;&quot;--host=i686-apple-darwin8.6.1 --target=arm-elf&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;gdb&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; q&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;put application to ram as following&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.text to 0xc0018000&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;.data to 0xc1018000&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;__stack_start &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0xc1ff8000&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;__stack_end &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0xc2008000 - 4&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;without Forcelocked by Hermit-at win32&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jump 0xc0018000&quot;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    LETD&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--includedir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/include &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/lib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/arm-linux-gcc &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;i486-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;make&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make install&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--includedir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/include &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/lib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/arm-linux-gcc &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;i486-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;make&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make install&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--includedir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/include &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/lib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/arm-linux-gcc &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;i486-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;make&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make install&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--includedir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/include &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/lib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/arm-linux-gcc &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;i486-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-linux-gnu &lt;span class=&quot;nt&quot;&gt;--with-arch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ARCH&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;when symbol error, change Makefile &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;each directory manually&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;change directory &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;freetype from /usr/local to /usr/arm-linux/...&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;%s/usr&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt;/usr&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;arm-linux/g&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--includedir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/include &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/arm-linux/lib&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/arm-linux-gcc &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;i486-linux-gnu&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-linux-gnu &lt;span class=&quot;nt&quot;&gt;--enable-png&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no &lt;span class=&quot;nt&quot;&gt;--enable-svg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    X11R6 libary is necessary&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    run cairo &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;program on linux &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;ARM-9&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    Measure performance based on cairo on ARM-9&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;    OpenGL ES on ARM-9&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;        try 3D?&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;new hermit-at win32 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;following URL can be used &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;windows vista&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;http://download.atmark-techno.com/armadillo-9/hermit/win32/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Sat, 20 Mar 2010 23:20:06 -0400</pubDate>
+        <link>http://www.jeffxu.net/cross-compile/2010/03/20/memo-compile-cairo-on-armadillo-9.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/cross-compile/2010/03/20/memo-compile-cairo-on-armadillo-9.html</guid>
+        
+        
+        <category>Cross-compile</category>
+        
+      </item>
+    
+  </channel>
+</rss>

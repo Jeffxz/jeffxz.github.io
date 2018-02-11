@@ -1,0 +1,8 @@
+{
+  "name": "Sample App - Very simple web app manifest",
+  "description": "This app helps you understanding web app manifest.",
+  "icons": [{
+    "src": "image/free_icon.png",
+    "sizes": "192x192"
+  }]
+}

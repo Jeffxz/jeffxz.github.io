@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Reading "Web App Manifest"</title>
+  <meta name="description" content="Last time update: 2018-02-10">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.jeffxu.net/w3c/2018/02/10/web-app-manifest.html">
+  <link rel="alternate" type="application/rss+xml" title="Jeff's cozy home" href="http://www.jeffxu.net/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Jeff's cozy home</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/category/epub.html">Epub</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/category/font.html">Font</a>
+          
+        
+          
+          <a class="page-link" href="/category/git.html">Git</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/category/w3c.html">W3C</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Reading "Web App Manifest"</h1>
+    <p class="post-meta"><time datetime="2018-02-10T12:08:53-05:00" itemprop="datePublished">Feb 10, 2018</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Last time update: 2018-02-10</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>This is my memo of reading w3c spec “<a href="https://w3c.github.io/manifest/">Web App Manifest</a>”. At first, at the time I am writing this, status of the spec is still Working Draft which means it could be changed later on. In case you want to get more involved to see what is going on about the specification in real time here is the “<a href="https://github.com/w3c/manifest">github</a>”.</p>
+
+<h3 id="what-is-web-app-manifest">What is Web App Manifest</h3>
+
+<p>It provides a standard of metadata for web application so that UA (web browser mostly) could handle those meta information properly. This might sounds too abstract to understand. <a href="/examples/web-app/manifest-sample1">Here</a> is a very simple web app using manifest. For this tiny example we only need index.html, manifest.json and an icon file.</p>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/index.html">This Github Sample</a> is by <a href="https://github.com/Jeffxz">Jeffxz</a>
+  </div>
+  <div class="meta-info">
+    examples/web-app/manifest-sample1/index.html <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/index.html">view</a> <a href="https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample1/index.html">raw</a>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1<br data-jekyll-commonmark-ghpages="" />2<br data-jekyll-commonmark-ghpages="" />3<br data-jekyll-commonmark-ghpages="" />4<br data-jekyll-commonmark-ghpages="" />5<br data-jekyll-commonmark-ghpages="" />6<br data-jekyll-commonmark-ghpages="" />7<br data-jekyll-commonmark-ghpages="" />8<br data-jekyll-commonmark-ghpages="" /></pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE HTML&gt;</span><br data-jekyll-commonmark-ghpages="" /><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages="" /><span class="nt">&lt;head&gt;</span><br data-jekyll-commonmark-ghpages="" />	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages="" />	<span class="nt">&lt;title&gt;</span>This is a very simple example for web app manifest<span class="nt">&lt;/title&gt;</span><br data-jekyll-commonmark-ghpages="" />  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"manifest"</span> <span class="na">href=</span><span class="s">"manifest.json"</span> <span class="nt">/&gt;</span><br data-jekyll-commonmark-ghpages="" /><span class="nt">&lt;/head&gt;</span><br data-jekyll-commonmark-ghpages="" /><span class="nt">&lt;body&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/manifest.json">This Github Sample</a> is by <a href="https://github.com/Jeffxz">Jeffxz</a>
+  </div>
+  <div class="meta-info">
+    examples/web-app/manifest-sample1/manifest.json <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample1/manifest.json">view</a> <a href="https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample1/manifest.json">raw</a>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1<br data-jekyll-commonmark-ghpages="" />2<br data-jekyll-commonmark-ghpages="" />3<br data-jekyll-commonmark-ghpages="" />4<br data-jekyll-commonmark-ghpages="" />5<br data-jekyll-commonmark-ghpages="" />6<br data-jekyll-commonmark-ghpages="" />7<br data-jekyll-commonmark-ghpages="" />8<br data-jekyll-commonmark-ghpages="" /></pre></td><td class="code"><pre><span class="p">{</span><span class="w"><br data-jekyll-commonmark-ghpages="" />  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample App - Very simple web app manifest"</span><span class="p">,</span><span class="w"><br data-jekyll-commonmark-ghpages="" />  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This app helps you understanding web app manifest."</span><span class="p">,</span><span class="w"><br data-jekyll-commonmark-ghpages="" />  </span><span class="s2">"icons"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"><br data-jekyll-commonmark-ghpages="" />    </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/free_icon.png"</span><span class="p">,</span><span class="w"><br data-jekyll-commonmark-ghpages="" />    </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192x192"</span><span class="w"><br data-jekyll-commonmark-ghpages="" />  </span><span class="p">}]</span><span class="w"><br data-jekyll-commonmark-ghpages="" /></span><span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Here is some explain about this simple app. <code class="highlighter-rouge">index.html</code> is still entry of the web app, just like other normal web site. There is a link element pointing to <code class="highlighter-rouge">manifest.json</code> with <code class="highlighter-rouge">ref="manifest"</code> to let UA know there is a manifest file corresponding with this web app.</p>
+
+<p>Unfortunately (maybe not) UA’s behavior of treating manifest is different from each other so I used latest chrome (v63.0.3239.132) on windows 10 to show how this works. Following is the setting menu in chrome to add this web app to desktop.</p>
+
+<p><img src="/assets/images/20180210/add_to_desktop.png" alt="add to desktop" title="Add to Desktop 1" /></p>
+
+<p>Then you will see a popup window as following which used the icons and name field from your manifest.json file.
+<img src="/assets/images/20180210/add_to_desktop_take2.png" alt="add_to_desktop 2" title="Add to Desktop 2" /></p>
+
+<p>After this you will find there is an icon on your windows desktop for this tiny web app.
+<img src="/assets/images/20180210/desktop_icon.png" alt="desktop icon" title="Desltop Icon" /></p>
+
+<p>Click it you will see the web app started just like other windows applications.
+<img src="/assets/images/20180210/app_start.png" alt="app start" title="App Start" /></p>
+
+<p>Tada!!! Here is your very first tiny web app launched.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jeff's cozy home</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Jeff's cozy home</li>
+          <li><a href="mailto:jeffxureadon@gmail.com">jeffxureadon@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/Jeffxz"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">Jeffxz</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Hi, I am Zheng(Jeff) Xu. A programmer focusing on embedded system, c++(Qt), epub, font, web browser. Android and iOS are my hobby.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
