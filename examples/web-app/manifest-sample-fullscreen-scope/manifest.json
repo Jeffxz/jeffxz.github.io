@@ -1,0 +1,12 @@
+{
+  "name": "Sample App - with fullscreen and scope",
+  "shot_name": "Sample App",
+  "description": "This app helps you understanding web app manifest.",
+  "icons": [{
+    "src": "image/free_icon.png",
+    "sizes": "192x192"
+  }],
+  "scope": "/examples/web-app/manifest-sample-fullscreen-scope/page/",
+  "start_url": "/examples/web-app/manifest-sample-fullscreen-scope/page/index.html",
+  "display": "fullscreen"
+}

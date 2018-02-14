@@ -6,8 +6,8 @@
 </description>
     <link>http://www.jeffxu.net/</link>
     <atom:link href="http://www.jeffxu.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 11 Feb 2018 16:51:03 -0500</pubDate>
-    <lastBuildDate>Sun, 11 Feb 2018 16:51:03 -0500</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2018 05:45:03 -0500</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2018 05:45:03 -0500</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -60,6 +60,12 @@
 &lt;img src=&quot;/assets/images/20180210/app_start.png&quot; alt=&quot;app start&quot; title=&quot;App Start&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tada!!! Here is your very first tiny web app launched.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://w3c-webmob.github.io/installable-webapps/&quot;&gt;Use Cases and Requirements for Installable Web Apps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 </description>
         <pubDate>Sat, 10 Feb 2018 12:08:53 -0500</pubDate>
