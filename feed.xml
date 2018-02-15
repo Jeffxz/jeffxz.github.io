@@ -6,9 +6,49 @@
 </description>
     <link>http://www.jeffxu.net/</link>
     <atom:link href="http://www.jeffxu.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Feb 2018 05:45:03 -0500</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2018 05:45:03 -0500</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2018 19:11:36 -0500</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2018 19:11:36 -0500</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Use multiple versions Java and install manually for old version on Ubuntu</title>
+        <description>&lt;p&gt;Last time update: 2018-02-14&lt;/p&gt;
+
+&lt;h2 id=&quot;why-do-this&quot;&gt;Why do this&lt;/h2&gt;
+
+&lt;p&gt;Usually we use latest version of Java, but sometime for example when compiling Android Kitkat or old library we still need old version of Java. And old version such as JDK7 we can not use &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install&lt;/code&gt; on ubuntu 16 anymore. So here is my memo about how I manually installed JDK7 in ubuntu and can switch between different versions of Java.&lt;/p&gt;
+
+&lt;h2 id=&quot;manual-install-jdk7-on-ubuntu-16&quot;&gt;Manual install JDK7 on Ubuntu 16&lt;/h2&gt;
+
+&lt;p&gt;It’s hard to find the official download URL. I found it from &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html&quot;&gt;here&lt;/a&gt; after a long journey of google search. Download it to some working folder for example &lt;code class=&quot;highlighter-rouge&quot;&gt;packages&lt;/code&gt;. Then we can start to install as following steps, pretty easy.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace/packages&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf ./jdk-7u80-linux-x64.tar.gz // this is the file downloaded from Oracle website&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv ./jdk1.7.0_80 java-7-oracle&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mv ./java-7-oracle /usr/lib/jvm/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;setup-multiple-versions-of-java&quot;&gt;Setup multiple versions of Java&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; /usr/bin/java java /usr/lib/jvm/java-7-oracle/bin/java 100&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; /usr/bin/javac javac /usr/lib/jvm/java-7-oracle/bin/javac 100&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then switch Java&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;5&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;6&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;7&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;8&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;9&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;10&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; java&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;There are 2 choices &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the alternative java &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;providing /usr/bin/java&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  Selection    Path                                     Priority   Status&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  0            /usr/lib/jvm/java-8-oracle/jre/bin/java   1081      auto mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  1            /usr/lib/jvm/java-7-oracle/bin/java       100       manual mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 2            /usr/lib/jvm/java-8-oracle/jre/bin/java   1081      manual mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Press &amp;lt;enter&amp;gt; to keep the current choice[&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, or &lt;span class=&quot;nb&quot;&gt;type &lt;/span&gt;selection number: 1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;5&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;6&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;7&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;8&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;9&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;10&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; javac&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;There are 2 choices &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the alternative javac &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;providing /usr/bin/javac&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  Selection    Path                                  Priority   Status&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  0            /usr/lib/jvm/java-8-oracle/bin/javac   1081      auto mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;  1            /usr/lib/jvm/java-7-oracle/bin/javac   100       manual mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 2            /usr/lib/jvm/java-8-oracle/bin/javac   1081      manual mode&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Press &amp;lt;enter&amp;gt; to keep the current choice[&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, or &lt;span class=&quot;nb&quot;&gt;type &lt;/span&gt;selection number: 1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;confirm-version&quot;&gt;Confirm version&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;4&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;java version &lt;span class=&quot;s2&quot;&gt;&quot;1.8.0_161&quot;&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Java&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 1.8.0_161-b12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 64-Bit Server VM &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 25.161-b12, mixed mode&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Wed, 14 Feb 2018 12:08:53 -0500</pubDate>
+        <link>http://www.jeffxu.net/java/programming/2018/02/14/multiple-java.html</link>
+        <guid isPermaLink="true">http://www.jeffxu.net/java/programming/2018/02/14/multiple-java.html</guid>
+        
+        
+        <category>java</category>
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>Reading &quot;Web App Manifest&quot;</title>
@@ -18,7 +58,7 @@
 
 &lt;p&gt;This is my memo of reading w3c spec “&lt;a href=&quot;https://w3c.github.io/manifest/&quot;&gt;Web App Manifest&lt;/a&gt;”. At first, at the time I am writing this, status of the spec is still Working Draft which means it could be changed later on. In case you want to get more involved to see what is going on about the specification in real time here is the “&lt;a href=&quot;https://github.com/w3c/manifest&quot;&gt;github&lt;/a&gt;”.&lt;/p&gt;
 
-&lt;h3 id=&quot;what-is-web-app-manifest&quot;&gt;What is Web App Manifest&lt;/h3&gt;
+&lt;h2 id=&quot;what-is-web-app-manifest---a-very-first-simple-example&quot;&gt;What is Web App Manifest - a very first simple example&lt;/h2&gt;
 
 &lt;p&gt;It provides a standard of metadata for web application so that UA (web browser mostly) could handle those meta information properly. This might sounds too abstract to understand. &lt;a href=&quot;/examples/web-app/manifest-sample1&quot;&gt;Here&lt;/a&gt; is a very simple web app using manifest. For this tiny example we only need index.html, manifest.json and an icon file.&lt;/p&gt;
 
@@ -60,6 +100,28 @@
 &lt;img src=&quot;/assets/images/20180210/app_start.png&quot; alt=&quot;app start&quot; title=&quot;App Start&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tada!!! Here is your very first tiny web app launched.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-bit-complicated-web-app&quot;&gt;A bit complicated Web App&lt;/h2&gt;
+
+&lt;p&gt;Now we go a bit further, to define a slightly complicated web app. We will define start page instead of just use same index.html as web app start page. &lt;a href=&quot;/examples/web-app/manifest-sample-fullscreen-scope&quot;&gt;Here&lt;/a&gt; is the example. After adding to desktop (as following) you can see start url is not same as the original index.html anymore.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180210/app_start_fullscreen_with_scope.png&quot; alt=&quot;app start&quot; title=&quot;App Start with scope&quot; /&gt;
+From following new manifest you can see a &lt;code class=&quot;highlighter-rouge&quot;&gt;start_url&lt;/code&gt; we have set just did the trick.&lt;/p&gt;
+
+&lt;div class=&quot;github-sample-reference&quot;&gt;
+  &lt;div class=&quot;author-info&quot;&gt;
+    &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json&quot;&gt;This Github Sample&lt;/a&gt; is by &lt;a href=&quot;https://github.com/Jeffxz&quot;&gt;Jeffxz&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;meta-info&quot;&gt;
+    examples/web-app/manifest-sample-fullscreen-scope/manifest.json &lt;a href=&quot;https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json&quot;&gt;view&lt;/a&gt; &lt;a href=&quot;https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json&quot;&gt;raw&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;2&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;3&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scope&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/examples/web-app/manifest-sample-fullscreen-scope/page/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;start_url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/examples/web-app/manifest-sample-fullscreen-scope/page/index.html&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;br data-jekyll-commonmark-ghpages=&quot;&quot; /&gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;display&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fullscreen&quot;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Unfortunately you can not see difference about &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;display&quot;:&quot;fullscreen&quot;&lt;/code&gt; however if you use different version of web browser will see some difference.&lt;/p&gt;
+
+&lt;p&gt;You also can refer &lt;a href=&quot;https://w3c.github.io/manifest/#navigation-scope&quot;&gt;here&lt;/a&gt; for more detail about spec of &lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;start_url&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 

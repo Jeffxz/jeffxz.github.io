@@ -86,7 +86,7 @@
 
 <p>This is my memo of reading w3c spec “<a href="https://w3c.github.io/manifest/">Web App Manifest</a>”. At first, at the time I am writing this, status of the spec is still Working Draft which means it could be changed later on. In case you want to get more involved to see what is going on about the specification in real time here is the “<a href="https://github.com/w3c/manifest">github</a>”.</p>
 
-<h3 id="what-is-web-app-manifest">What is Web App Manifest</h3>
+<h2 id="what-is-web-app-manifest---a-very-first-simple-example">What is Web App Manifest - a very first simple example</h2>
 
 <p>It provides a standard of metadata for web application so that UA (web browser mostly) could handle those meta information properly. This might sounds too abstract to understand. <a href="/examples/web-app/manifest-sample1">Here</a> is a very simple web app using manifest. For this tiny example we only need index.html, manifest.json and an icon file.</p>
 
@@ -128,6 +128,28 @@
 <img src="/assets/images/20180210/app_start.png" alt="app start" title="App Start" /></p>
 
 <p>Tada!!! Here is your very first tiny web app launched.</p>
+
+<h2 id="a-bit-complicated-web-app">A bit complicated Web App</h2>
+
+<p>Now we go a bit further, to define a slightly complicated web app. We will define start page instead of just use same index.html as web app start page. <a href="/examples/web-app/manifest-sample-fullscreen-scope">Here</a> is the example. After adding to desktop (as following) you can see start url is not same as the original index.html anymore.</p>
+
+<p><img src="/assets/images/20180210/app_start_fullscreen_with_scope.png" alt="app start" title="App Start with scope" />
+From following new manifest you can see a <code class="highlighter-rouge">start_url</code> we have set just did the trick.</p>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json">This Github Sample</a> is by <a href="https://github.com/Jeffxz">Jeffxz</a>
+  </div>
+  <div class="meta-info">
+    examples/web-app/manifest-sample-fullscreen-scope/manifest.json <a href="https://github.com/Jeffxz/jeffxz.github.io/blob/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json">view</a> <a href="https://raw.githubusercontent.com/Jeffxz/jeffxz.github.io/master/examples/web-app/manifest-sample-fullscreen-scope/manifest.json">raw</a>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1<br data-jekyll-commonmark-ghpages="" />2<br data-jekyll-commonmark-ghpages="" />3<br data-jekyll-commonmark-ghpages="" /></pre></td><td class="code"><pre><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/examples/web-app/manifest-sample-fullscreen-scope/page/"</span><span class="p">,</span><span class="w"><br data-jekyll-commonmark-ghpages="" /></span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/examples/web-app/manifest-sample-fullscreen-scope/page/index.html"</span><span class="p">,</span><span class="w"><br data-jekyll-commonmark-ghpages="" /></span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fullscreen"</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Unfortunately you can not see difference about <code class="highlighter-rouge">"display":"fullscreen"</code> however if you use different version of web browser will see some difference.</p>
+
+<p>You also can refer <a href="https://w3c.github.io/manifest/#navigation-scope">here</a> for more detail about spec of <code class="highlighter-rouge">scope</code> and <code class="highlighter-rouge">start_url</code>.</p>
 
 <h2 id="reference">Reference</h2>
 
